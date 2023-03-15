@@ -1,0 +1,11 @@
+{
+  "name": "odometer_plugin_test",
+  "version": "1.0.0",
+  "description": "Test for odometer plugin",
+  "main": "index.js",
+  "author": "Marcel Soler",
+  "license": "MIT",
+  "dependencies": {
+    "countup.js": "^2.6.0"
+  }
+}
