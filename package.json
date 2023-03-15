@@ -2,11 +2,21 @@
   "name": "odometer_countup.js",
   "version": "1.0.0",
   "description": "Plugin for countUp.js with odometer or barrel style numbers",
-  "main": "index.js",
-  "author": "msoler75 <msoler75@yahoo.es>",
+  "author": "Marcel Soler <msoler75@yahoo.es>",
   "license": "MIT",
+  "main": "dist/index.js",
   "private": false,
+  "scripts": {
+    "build": "tsc"
+  },
   "dependencies": {
     "countup.js": "^2.6.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/msoler75/odometer_countup.js"
   }
 }
