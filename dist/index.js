@@ -21,10 +21,7 @@ class Odometer {
                 // add styles for odometer numbers
                 var style = document.createElement('style');
                 style.setAttribute('odometer', 'odometer');
-                style.innerHTML = `
-        .odometer-numbers{display: inline-flex; line-height: 100%;overflow-y: hidden;}
-        .odometer-numbers > span{display: flex; flex-direction:column;justify-content: start; align-items: center; height: 1em; will-change: transform; transform: translateY(0)}
-        `;
+                style.innerHTML = '.odometer-numbers{display:inline-flex;line-height:100%;overflow-y:hidden}.odometer-numbers>span{display:flex;flex-direction:column;justify-content:start;align-items:center;height:1em;will-change:transform;transform:translateY(0)}';
                 document.head.appendChild(style);
             }
             // create wrapper
