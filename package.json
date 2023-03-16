@@ -4,7 +4,8 @@
   "description": "Plugin for countUp.js with odometer or barrel style numbers",
   "author": "Marcel Soler <msoler75@yahoo.es>",
   "license": "MIT",
-  "main": "dist/index.js",
+  "main": "./dist/odometer.umd.js",
+  "module": "./dist/odometer.min.js",
   "private": false,
   "scripts": {
     "build": "tsc && node utils/minify.js"

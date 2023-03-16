@@ -1,9 +1,13 @@
-import { CountUpPlugin } from 'countup.js/src/countUp'
+import { CountUpPlugin } from 'node_modules/countup.js/src/countUp'
 
 export interface OdometerOptions {
   duration?: number // barrel animation in seconds,
   delay?: number // delay last digit in animation, in seconds, 0 to deactivate
 }
+
+const rAF = window.requestAnimationFrame || function(callback) {
+  window.setTimeout(callback, 1000 / 60);
+};
 
 export class Odometer implements CountUpPlugin {
   version: '1.0'
@@ -16,7 +20,7 @@ export class Odometer implements CountUpPlugin {
 
   private cell_digits: any = null
 
-  constructor (options: OdometerOptions) {
+  constructor (options?: OdometerOptions) {
     this.options = {
       ...this.defaults,
       ...options
@@ -24,7 +28,7 @@ export class Odometer implements CountUpPlugin {
     this.cell_digits = null
   }
 
-  render (elem: HTMLElement | HTMLInputElement, formatted: string): void {
+  public render (elem: HTMLElement | HTMLInputElement, formatted: string): void {
     // render DOM here
     var createdNow = false
     if (!this.cell_digits) {
@@ -72,7 +76,7 @@ export class Odometer implements CountUpPlugin {
       // we need to stablish transition at first number, using timeout
       if (cell.new) {
         cell.new = false
-        requestAnimationFrame(function () {
+        rAF(function () {
           cell.container.style.transform = `translateY(${cell.position}em)`
         })
       } else cell.container.style.transform = `translateY(${cell.position}em)`
@@ -133,7 +137,7 @@ export class Odometer implements CountUpPlugin {
           cell.timerClean = null
           if (cell.container.children.length < 3) return
           cell.container.style.transition = 'none' // temporally clear animation transition
-          requestAnimationFrame(() => {
+          rAF(() => {
             cell.position = -1
             // we remove all childs except last
             while (cell.container.children.length > 1)
@@ -144,7 +148,7 @@ export class Odometer implements CountUpPlugin {
             cell.container.insertBefore(digitBlank, cell.container.firstChild)
             // set scroll to last cell position
             cell.container.style.transform = `translateY(${cell.position}em)`
-            requestAnimationFrame(() => {
+            rAF(() => {
               cell.container.style.transition = transitionDigit // restart animation transition
             })
           })

@@ -1,14 +1,11 @@
 {
     "compilerOptions": {
-      "target": "es6",
-      "module": "commonjs",
-      "outDir": "dist"
+      "target": "es5",
+      "module": "esnext",
+      "moduleResolution": "node",
+      "baseUrl": "."
     },
-    "include": [
-      "src/**/*"
-    ],
-    "exclude": [
-        "node_modules"
-    ],
+    "include": ["src/**/*.ts"],
+    "exclude": ["node_modules"],
     "compileOnSave": false
   }
