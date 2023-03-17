@@ -30,6 +30,7 @@ export class Odometer implements CountUpPlugin {
 
   public render (elem: HTMLElement | HTMLInputElement, formatted: string): void {
     // render DOM here
+    const options = this.options
     var createdNow = false
     if (!this.cell_digits) {
       createdNow = true
@@ -38,7 +39,8 @@ export class Odometer implements CountUpPlugin {
         // add styles for odometer numbers
         var style = document.createElement('style')
         style.setAttribute('odometer', 'odometer')
-        style.innerHTML = '.odometer-numbers{display:inline-flex;line-height:100%;overflow-y:hidden}.odometer-numbers>span{display:flex;flex-direction:column;justify-content:start;align-items:center;height:1em;will-change:transform;transform:translateY(0)}'
+        style.innerHTML =
+          '.odometer-numbers{display:inline-flex;line-height:100%;overflow-y:hidden}.odometer-numbers>span{display:flex;flex-direction:column;justify-content:start;align-items:center;height:1em;will-change:transform;transform:translateY(0)}'
         document.head.appendChild(style)
       }
       // create wrapper
@@ -49,7 +51,7 @@ export class Odometer implements CountUpPlugin {
 
     //blank space
     const blank = '<span style="color:transparent">0</span>'
-    const transitionDigit = `transform ${this.options.duration}s ease-out`
+    const transitionDigit = `transform ${options.duration}s ease-out`
 
     // appearing new cell_digits
     for (var i = this.cell_digits.length; i < formatted.length; i++) {
@@ -68,7 +70,7 @@ export class Odometer implements CountUpPlugin {
       })
     }
 
-    function appendDigit (cell, newDigit) {
+    function appendDigit (cell:any, newDigit:any) {
       cell.position--
       cell.container.appendChild(newDigit)
       cell.lastTimeAdd = +new Date()
@@ -91,11 +93,11 @@ export class Odometer implements CountUpPlugin {
       }
 
       const now = +new Date()
-      const delayTime = this.options.delay * 1000 - (now - cell.lastTimeAdd)
+      const delayTime = options.delay * 1000 - (now - cell.lastTimeAdd)
 
       // if we are in slow animation, we just add digit
       if (
-        this.options.delay <= 0 ||
+        options.delay <= 0 ||
         now - cell.lastTimeAdd >= delayTime * 1.05
       ) {
         appendDigit(cell, newDigit)
@@ -106,10 +108,11 @@ export class Odometer implements CountUpPlugin {
         cell.lastTimer = setTimeout(() => {
           appendDigit(cell, cell.nextToAdd)
           cell.nextToAdd = null
-        }, this.options.duration * 1000)
+        }, options.duration * 1000)
       }
     }
 
+    
     // we add all sequence cell_digits that are new in formatted number
     // or remove cells no more exist (we put blank cells)
     const len = Math.max(formatted.length, this.cell_digits.length)
@@ -152,7 +155,7 @@ export class Odometer implements CountUpPlugin {
               cell.container.style.transition = transitionDigit // restart animation transition
             })
           })
-        }, ((this.options.duration || 0.8) + (this.options.duration || 0.25)) *
+        }, ((options.duration || 0.8) + (options.duration || 0.25)) *
           1000 +
           2500) // 2.5 seconds after last update
       }

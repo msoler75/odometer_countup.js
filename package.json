@@ -8,10 +8,12 @@
   "module": "./dist/odometer.min.js",
   "private": false,
   "scripts": {
-    "build": "tsc && node utils/minify.js"
+    "build": "tsc && node utils/minify.js",
+    "demo": "parcel demo.html --dist-dir tmp"
   },
   "dependencies": {
-    "countup.js": "^2.6.0"
+    "countup.js": "^2.6.0",
+    "parcel": "^2.8.3"
   },
   "devDependencies": {
     "tsify": "^5.0.4",
