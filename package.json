@@ -1,6 +1,6 @@
 {
   "name": "odometer_countup",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Plugin for countUp.js with odometer or barrel style numbers",
   "author": "Marcel Soler <msoler75@yahoo.es>",
   "license": "MIT",
