@@ -718,6 +718,13 @@
   resolved "https://registry.yarnpkg.com/@trysound/sax/-/sax-0.2.0.tgz#cccaab758af56761eb7bf37af6f03f326dd798ad"
   integrity sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==
 
+"@types/countup.js@^2.0.4":
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@types/countup.js/-/countup.js-2.0.4.tgz#8bbde8d019f36c4a1a89b27a25d97db9d527674b"
+  integrity sha512-ffAN1IyeKwzzthP5aSwg30Xrhn0ZbSEPXC9t5+/rvhDpjbWpzxInv0F4iQmB4nybS+ZxX1IGDiff/xOs0BvcRQ==
+  dependencies:
+    countup.js "*"
+
 "@types/parse-json@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
@@ -878,7 +885,7 @@ cosmiconfig@^7.0.1:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
-countup.js@^2.6.0:
+countup.js@*, countup.js@^2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/countup.js/-/countup.js-2.6.0.tgz#db25f37653c5ee996b4dfa03d1ab2f430c903fd1"
   integrity sha512-GeORCrCcaFUHP3RNf0/dWK+XQX+fsdtrMO31mNvsbKXNNG+DMTcgZ4dWpIG9BnOS8t5+iJbaRXgaaG9oLs0N4g==
