@@ -23,9 +23,9 @@ export class Odometer implements CountUpPlugin;
 ## Example
 
 ```
-import { CountUp } from "https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.6.0/countUp.min.js";
+import { CountUp } from 'countup.js';
 
-import { Odometer } from "https://codepen.io/msoler75/pen/YzOvZVL.js";
+import { Odometer } from 'odometer_countup';
 
 const counter = new CountUp("counter", 99999, {
   plugin: new Odometer({ duration: 2.3, delay: 0 }),
