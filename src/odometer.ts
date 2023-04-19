@@ -1,8 +1,8 @@
-import { CountUpPlugin } from 'node_modules/countup.js/src/countUp'
+import { CountUpPlugin } from 'countup.js'
 
 export interface OdometerOptions {
   duration?: number // barrel animation in seconds,
-  delay?: number // delay last digit in animation, in seconds, 0 to deactivate
+  lastDigitDelay?: number // delay last digit in animation, in seconds, 0 to deactivate
 }
 
 const rAF = window.requestAnimationFrame || function(callback) {
@@ -10,12 +10,12 @@ const rAF = window.requestAnimationFrame || function(callback) {
 };
 
 export class Odometer implements CountUpPlugin {
-  version: '1.0'
+  version = '1.0'
 
   private options: OdometerOptions
   private defaults: OdometerOptions = {
     duration: 0.8,
-    delay: 0.25
+    lastDigitDelay: 0.25
   }
 
   private cell_digits: any = null
@@ -93,11 +93,11 @@ export class Odometer implements CountUpPlugin {
       }
 
       const now = +new Date()
-      const delayTime = options.delay * 1000 - (now - cell.lastTimeAdd)
+      const delayTime = options.lastDigitDelay * 1000 - (now - cell.lastTimeAdd)
 
       // if we are in slow animation, we just add digit
       if (
-        options.delay <= 0 ||
+        options.lastDigitDelay <= 0 ||
         now - cell.lastTimeAdd >= delayTime * 1.05
       ) {
         appendDigit(cell, newDigit)

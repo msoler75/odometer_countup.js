@@ -14,9 +14,10 @@ var rAF = window.requestAnimationFrame || function (callback) {
 };
 var Odometer = /** @class */ (function () {
     function Odometer(options) {
+        this.version = '1.0';
         this.defaults = {
             duration: 0.8,
-            delay: 0.25
+            lastDigitDelay: 0.25
         };
         this.cell_digits = null;
         this.options = __assign(__assign({}, this.defaults), options);
@@ -84,9 +85,9 @@ var Odometer = /** @class */ (function () {
                 cell.nextToAdd = null;
             }
             var now = +new Date();
-            var delayTime = options.delay * 1000 - (now - cell.lastTimeAdd);
+            var delayTime = options.lastDigitDelay * 1000 - (now - cell.lastTimeAdd);
             // if we are in slow animation, we just add digit
-            if (options.delay <= 0 ||
+            if (options.lastDigitDelay <= 0 ||
                 now - cell.lastTimeAdd >= delayTime * 1.05) {
                 appendDigit(cell, newDigit);
                 cell.nextToAdd = null;

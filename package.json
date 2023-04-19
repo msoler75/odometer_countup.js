@@ -4,23 +4,21 @@
   "description": "Plugin for countUp.js with odometer or barrel style numbers",
   "author": "Marcel Soler <msoler75@yahoo.es>",
   "license": "MIT",
-  "main": "dist/odometer.umd.js",
-  "module": "dist/odometer.min.js",
+  "main": "dist/odometer.min.js",
   "types": "dist/odometer.d.ts",
   "private": false,
   "scripts": {
     "build": "tsc && node utils/minify.js",
     "start": "parcel demo.html --dist-dir tmp"
   },
+  "dependencies": {
+    "countup.js": "^2.6.0"
+  },
   "devDependencies": {
-    "countup.js": "^2.6.0",
     "parcel": "^2.8.3",
     "tsify": "^5.0.4",
     "typescript": "^4.9.5",
     "uglify-js": "^3.17.4"
-  },
-  "peerDependencies": {
-    "countup.js": "^2.6.0"
   },
   "repository": {
     "type": "git",
