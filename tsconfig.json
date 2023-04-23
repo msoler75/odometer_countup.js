@@ -3,7 +3,7 @@
       "target": "es5",
       "module": "esnext",
       "moduleResolution": "node",
-      "baseUrl": ".",
+      "baseUrl": "./",
       "declaration": true, // activa la generación de archivos de definición de tipos
       "declarationDir": "dist" // especifica la carpeta donde se deben generar los archivos de definición de tipos
     },

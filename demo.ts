@@ -4,7 +4,7 @@ import {Odometer, OdometerOptions} from './src/odometer'
 
 const pluginOptions:OdometerOptions = {
     duration: .7,
-    delay: 0
+    lastDigitDelay: 0
 }
 
 const counter = new CountUp('counter', 99999, {

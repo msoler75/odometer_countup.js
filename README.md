@@ -14,7 +14,7 @@ Visit [countUp](https://github.com/inorganik/countUp.js) for instructions on usi
 ```
 interface OdometerOptions {
   duration?: number // barrel animation in seconds,
-  delay?: number // delay last digit in animation, in seconds, 0 to deactivate
+  lastDigitDelay?: number // delay last digit in animation, in seconds, 0 to deactivate
 }
 
 export class Odometer implements CountUpPlugin;
@@ -23,12 +23,12 @@ export class Odometer implements CountUpPlugin;
 ## Example
 
 ```
-import { CountUp } from "https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.6.0/countUp.min.js";
+import { CountUp } from 'countup.js';
 
-import { Odometer } from "https://codepen.io/msoler75/pen/YzOvZVL.js";
+import { Odometer } from 'odometer_countup';
 
 const counter = new CountUp("counter", 99999, {
-  plugin: new Odometer({ duration: 2.3, delay: 0 }),
+  plugin: new Odometer({ duration: 2.3, lastDigitDelay: 0 }),
   duration: 3.0
 });
 counter.start();
