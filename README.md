@@ -7,7 +7,7 @@ Visit [countUp](https://github.com/inorganik/countUp.js) for instructions on usi
 ## Parameters
 
 - **duration**: the time in seconds to transition to number
-- **delay**: experimental delaying last digit in sequence
+- **lastDigitDelay**: experimental delaying last digit in sequence
 
 ## Typescript
 
