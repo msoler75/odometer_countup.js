@@ -8,7 +8,8 @@
   "types": "./dist/odometer.d.ts",
   "private": false,
   "exports": {
-    "import": "./dist/odometer.min.js"
+    "import": "./dist/odometer.min.js",
+		"require": "./dist/odometer.umd.js"
   },
   "scripts": {
     "build": "tsc && rollup -c rollup.config.mjs",
