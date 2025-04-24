@@ -9,7 +9,7 @@
   "private": false,
   "exports": {
     "import": "./dist/odometer.min.js",
-		"require": "./dist/odometer.umd.js"
+    "require": "./dist/odometer.umd.js"
   },
   "scripts": {
     "build": "tsc && rollup -c rollup.config.mjs",
